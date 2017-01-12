@@ -88,4 +88,14 @@ class Request
             return '';
         }
     }
+    
+    /**
+     * Возвращает формат ответа
+     * 
+     * @return string api|xml
+     */
+    public function getFormat()
+    {
+        return substr(strrchr(parse_url($this->Uri, PHP_URL_PATH), '.'), 1);
+    }
 }

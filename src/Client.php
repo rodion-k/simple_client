@@ -277,7 +277,7 @@ class Client
 
         curl_close($ch);
 
-        if ($this->result && 'api' === substr($request->Uri, -3)) {
+        if ($this->result && 'api' === $request->getFormat()) {
             $this->result = json_decode($this->result);
             if (null === $this->result) {
                 $this->error = json_last_error_msg().' in: '.PHP_EOL.$this->result;
